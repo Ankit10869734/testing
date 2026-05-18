@@ -12,19 +12,7 @@ export default function Landing() {
   const navigate = useNavigate()
 
   // Check if user is logged in and fetch profile
-  useEffect(() => {
-    const token = localStorage.getItem('access')
-    if (token) {
-      api.get('/profile/')
-        .then(res => setUserProfile(res.data))
-        .catch(err => {
-          console.error('Error fetching profile:', err)
-          if (err.response?.status === 401) {
-            localStorage.clear()
-          }
-        })
-    }
-  }, [])
+
 
   useEffect(() => {
     const sectionIds = ['home', 'complaints', 'about', 'contact']
